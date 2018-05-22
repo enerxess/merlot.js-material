@@ -1,0 +1,51 @@
+{
+  "name": "merlot.js-material",
+  "version": "0.0.1-alpha",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "transpile": "ngc",
+    "package": "rollup -c",
+    "minify": "uglifyjs dist/bundles/merlot.js --screw-ie8 --compress --mangle --comments --output dist/bundles/merlot.min.js",
+    "build": "npm run clean && npm run transpile && npm run package && npm run minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enerxess/merlot.js-material.git"
+  },
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/enerxess/merlot.js-materials/issues"
+  },
+  "author": "ener|xess GmbH",
+  "contributers": [
+    {
+      "name": "Tobias Engelberg",
+      "email": "tobias.engelberg@enerxess.com"
+    }
+  ],
+  "peerDependencies": {
+    "@angular/common": "^2 || ^4",
+    "@angular/core": "^2 || ^4",
+    "rxjs": "^5.5.0",
+    "typescript": "^2.0.0"
+  },
+  "devDependencies": {
+    "@angular/animations": "^6.0.2",
+    "@angular/cdk": "^6.1.0",
+    "@angular/common": "^6.0.2",
+    "@angular/compiler": "^6.0.2",
+    "@angular/compiler-cli": "^6.0.2",
+    "@angular/core": "^6.0.2",
+    "@angular/forms": "^6.0.2",
+    "@angular/material": "^6.1.0",
+    "@angular/platform-browser": "^6.0.2",
+    "rollup": "^0.59.1",
+    "rxjs": "^6.1.0",
+    "typescript": "2.7.2",
+    "uglify-js": "^3.3.25"
+  },
+  "dependencies": {}
+}
