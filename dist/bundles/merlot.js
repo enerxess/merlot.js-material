@@ -129,11 +129,52 @@
         return ChipInputComponent;
     }());
 
+    var MultiselectComponent = /** @class */ (function () {
+        function MultiselectComponent() {
+            this.ngModelChange = new core.EventEmitter();
+            this.transformediModel = [];
+        }
+        MultiselectComponent.prototype.ngOnInit = function () {
+            var _this = this;
+            this.iModel.controls.forEach(function (element) {
+                _this.transformediModel.push(new forms.FormControl(element.value));
+            });
+            this.ui = this.schema.ui || {};
+        };
+        MultiselectComponent.prototype.updateModel = function ($event) {
+            var _this = this;
+            this.iModel.controls = [];
+            $event.forEach(function (element) {
+                _this.iModel.push(new forms.FormControl(element));
+            });
+            if (!this.iModel.controls.length) {
+                this.iModel.push(new forms.FormControl());
+            }
+            this.ngModelChange.emit(this.iModel);
+        };
+        MultiselectComponent.decorators = [
+            { type: core.Component, args: [{
+                        selector: 'app-multiselect',
+                        template: "<mat-form-field>\n              <mat-select [placeholder]=\"ui.label\" [(ngModel)]=\"transformediModel\" (ngModelChange)=\"updateModel($event)\" multiple>\n                <mat-option *ngFor=\"let entry of schema.enum\" [value]=\"entry\">{{entry}}</mat-option>\n              </mat-select>\n            </mat-form-field>"
+                    },] },
+        ];
+        /** @nocollapse */
+        MultiselectComponent.ctorParameters = function () { return []; };
+        MultiselectComponent.propDecorators = {
+            "control": [{ type: core.Input, args: ['control',] },],
+            "iModel": [{ type: core.Input, args: ['iModel',] },],
+            "schema": [{ type: core.Input, args: ['schema',] },],
+            "ngModelChange": [{ type: core.Output },],
+        };
+        return MultiselectComponent;
+    }());
+
     var MerlotMaterial = /** @class */ (function () {
         function MerlotMaterial() {
             this.templates = [
                 { name: 'checkbox', component: CheckboxComponent },
                 { name: 'chipsInput', component: ChipInputComponent },
+                { name: 'multiselect', component: MultiselectComponent },
                 { name: 'input', component: InputComponent },
                 { name: 'slider', component: SliderComponent }
             ];
@@ -157,16 +198,18 @@
                             material.MatChipsModule,
                             material.MatIconModule,
                             material.MatInputModule,
+                            material.MatSelectModule,
                             material.MatSliderModule,
                             common.CommonModule,
                             forms.FormsModule
                         ],
                         providers: [MerlotMaterial],
-                        declarations: [SliderComponent, InputComponent, CheckboxComponent, ChipInputComponent],
+                        declarations: [SliderComponent, InputComponent, CheckboxComponent, ChipInputComponent, MultiselectComponent],
                         entryComponents: [
                             CheckboxComponent,
                             ChipInputComponent,
                             InputComponent,
+                            MultiselectComponent,
                             SliderComponent
                         ]
                     },] },
