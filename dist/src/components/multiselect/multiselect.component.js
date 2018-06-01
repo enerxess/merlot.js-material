@@ -8,7 +8,7 @@ var MultiselectComponent = /** @class */ (function () {
     MultiselectComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.iModel.controls.forEach(function (element) {
-            _this.transformediModel.push(new FormControl(element.value));
+            _this.transformediModel.push(element.value);
         });
         this.ui = this.schema.ui || {};
     };

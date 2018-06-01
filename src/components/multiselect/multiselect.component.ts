@@ -21,7 +21,7 @@ export class MultiselectComponent implements OnInit {
 
   ngOnInit() {
     this.iModel.controls.forEach((element: any) => {
-      this.transformediModel.push(new FormControl(element.value));
+      this.transformediModel.push(element.value);
     });
     this.ui = this.schema.ui || {};
   }
