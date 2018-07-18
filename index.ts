@@ -1,2 +1,2 @@
-export { MerlotMaterialModule } from './src/merlot-material.module';
-export { MerlotMaterial } from './src/merlot-material.service';
+export { MerlotMaterialModule } from './dist/src/merlot-material.module';
+export { MerlotMaterial } from './dist/src/merlot-material.service';
