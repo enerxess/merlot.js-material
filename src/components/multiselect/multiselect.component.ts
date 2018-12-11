@@ -8,10 +8,10 @@ import { FormControl, FormArray } from '@angular/forms';
                 <mat-option *ngFor="let entry of schema.enum" [value]="entry">{{entry}}</mat-option>
               </mat-select>
             </mat-form-field>
-            <mat-error *ngIf="control.errors.required">Dieser Wert ist eine Pflichtangabe.</mat-error>
-            <mat-error *ngIf="control.errors.minNumber">Es müssen mindestens {{
+            <mat-error *ngIf="control.errors && control.errors.required">Dieser Wert ist eine Pflichtangabe.</mat-error>
+            <mat-error *ngIf="control.errors && control.errors.minNumber">Es müssen mindestens {{
               control.errors.minNumber.requiredElements}} Elemente ausgewählt werden.</mat-error>
-            <mat-error *ngIf="control.errors.enumValidator">Dieser Wert ist nicht zulässig. Erlaubte Werte sind: {{
+            <mat-error *ngIf="control.errors && control.errors.enumValidator">Dieser Wert ist nicht zulässig. Erlaubte Werte sind: {{
               control.errors.enumValidator.allowedValues.join(", ") }}</mat-error>`
 })
 export class MultiselectComponent implements OnInit {
