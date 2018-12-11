@@ -1,6 +1,6 @@
 {
   "name": "merlot.js-material",
-  "version": "0.0.3-developer-preview",
+  "version": "0.0.4-developer-preview",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -45,8 +45,10 @@
     "@angular/platform-browser": "^6.0.2",
     "rollup": "^0.59.1",
     "rxjs": "^6.1.0",
-    "typescript": "2.7.2",
+    "typescript": "^2.7.2",
     "uglify-js": "^3.3.25"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@types/jasmine": "^2.8.0"
+  }
 }

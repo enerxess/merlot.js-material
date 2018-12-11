@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import {ENTER, COMMA} from '@angular/cdk/keycodes';
+import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material';
 import { FormControl } from '@angular/forms';
 
@@ -31,7 +31,7 @@ export class ChipInputComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.ui = this.schema.ui || {};
+    this.ui = this.schema.ui || {};
   }
 
   updateModel($event: any) {

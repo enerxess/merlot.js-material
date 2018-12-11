@@ -13,7 +13,7 @@ export class CheckboxComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.ui = this.schema.ui || {};
+    this.ui = this.schema.ui || {};
   }
 
   updateModel($event: any) {

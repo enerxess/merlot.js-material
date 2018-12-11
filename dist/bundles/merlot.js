@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/forms'), require('@angular/cdk/keycodes'), require('@angular/common'), require('@angular/material')) :
-    typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/forms', '@angular/cdk/keycodes', '@angular/common', '@angular/material'], factory) :
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk/keycodes'), require('@angular/forms'), require('@angular/common'), require('@angular/material')) :
+    typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/cdk/keycodes', '@angular/forms', '@angular/common', '@angular/material'], factory) :
     (factory((global.merlot = global.merlot || {}, global.merlot.js = global.merlot.js || {}, global.merlot.js.ui = {}),global.ng.core,null,null,null,null));
-}(this, (function (exports,core,forms,keycodes,common,material) { 'use strict';
+}(this, (function (exports,core,keycodes,forms,common,material) { 'use strict';
 
     var SliderComponent = /** @class */ (function () {
         function SliderComponent() {
@@ -17,12 +17,13 @@
         SliderComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'app-slider',
-                        template: '<mat-slider [min]="schema.min" [max]="schema.max" [step]="ui.steps || 1" [(ngModel)]="iModel" (ngModelChange)="updateModel($event)"></mat-slider>'
+                        template: "<mat-slider [min]=\"schema.min\" [max]=\"schema.max\" [step]=\"ui.steps || 1\" [(ngModel)]=\"iModel\" (ngModelChange)=\"updateModel($event)\"></mat-slider>\n            <mat-error *ngIf=\"control.errors.required\">Dieser Wert ist eine Pflichtangabe.</mat-error>\n            <mat-error *ngIf=\"control.errors.min\">Dieser Zahlenwert darf nicht kleiner als {{control.errors.min.min}} sein.</mat-error>\n            <mat-error *ngIf=\"control.errors.max\">Dieser Zahlenwert darf nicht gr\u00F6\u00DFer als {{control.errors.max.max}} sein.</mat-error>\n            <mat-error *ngIf=\"control.errors.minlength\">Dieser Wert muss mindestens {{control.errors.minlength.requiredLength}}\n              Zeichen lang sein.</mat-error>\n            <mat-error *ngIf=\"control.errors.maxlength\">Dieser Wert darf h\u00F6chstens {{control.errors.maxlength.requiredLength}}\n              Zeichen lang sein.</mat-error>\n            <mat-error *ngIf=\"control.errors.enumValidator\">Dieser Wert ist nicht zul\u00E4ssig. Erlaubte Werte sind: {{\n              control.errors.enumValidator.allowedValues.join(\", \") }}</mat-error>"
                     },] },
         ];
         /** @nocollapse */
         SliderComponent.ctorParameters = function () { return []; };
         SliderComponent.propDecorators = {
+            "control": [{ type: core.Input, args: ['control',] },],
             "iModel": [{ type: core.Input, args: ['iModel',] },],
             "schema": [{ type: core.Input, args: ['schema',] },],
             "ngModelChange": [{ type: core.Output },],
@@ -43,7 +44,7 @@
         InputComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'app-input',
-                        template: "<mat-form-field>\n              <input matInput placeholder=\"{{ui.label}}\" [(ngModel)]=\"iModel\" (ngModelChange)=\"updateModel($event)\">\n             </mat-form-field>"
+                        template: "<mat-form-field>\n              <input matInput placeholder=\"{{ui.label}}\" [(ngModel)]=\"iModel\" (ngModelChange)=\"updateModel($event)\">\n             </mat-form-field>\n             <mat-error *ngIf=\"control.errors.required\">Dieser Wert ist eine Pflichtangabe.</mat-error>\n            <mat-error *ngIf=\"control.errors.min\">Dieser Zahlenwert darf nicht kleiner als {{control.errors.min.min}} sein.</mat-error>\n            <mat-error *ngIf=\"control.errors.max\">Dieser Zahlenwert darf nicht gr\u00F6\u00DFer als {{control.errors.max.max}} sein.</mat-error>\n            <mat-error *ngIf=\"control.errors.minlength\">Dieser Wert muss mindestens {{control.errors.minlength.requiredLength}}\n              Zeichen lang sein.</mat-error>\n            <mat-error *ngIf=\"control.errors.maxlength\">Dieser Wert darf h\u00F6chstens {{control.errors.maxlength.requiredLength}}\n              Zeichen lang sein.</mat-error>\n            <mat-error *ngIf=\"control.errors.enumValidator\">Dieser Wert ist nicht zul\u00E4ssig. Erlaubte Werte sind: {{\n              control.errors.enumValidator.allowedValues.join(\", \") }}</mat-error>"
                     },] },
         ];
         /** @nocollapse */
@@ -155,7 +156,7 @@
         MultiselectComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'app-multiselect',
-                        template: "<mat-form-field>\n              <mat-select [placeholder]=\"ui.label\" [(ngModel)]=\"transformediModel\" (ngModelChange)=\"updateModel($event)\" multiple>\n                <mat-option *ngFor=\"let entry of schema.enum\" [value]=\"entry\">{{entry}}</mat-option>\n              </mat-select>\n            </mat-form-field>"
+                        template: "<mat-form-field>\n              <mat-select [placeholder]=\"ui.label\" [(ngModel)]=\"transformediModel\" (ngModelChange)=\"updateModel($event)\" multiple>\n                <mat-option *ngFor=\"let entry of schema.enum\" [value]=\"entry\">{{entry}}</mat-option>\n              </mat-select>\n            </mat-form-field>\n            <mat-error *ngIf=\"control.errors.required\">Dieser Wert ist eine Pflichtangabe.</mat-error>\n            <mat-error *ngIf=\"control.errors.minNumber\">Es m\u00FCssen mindestens {{\n              control.errors.minNumber.requiredElements}} Elemente ausgew\u00E4hlt werden.</mat-error>\n            <mat-error *ngIf=\"control.errors.enumValidator\">Dieser Wert ist nicht zul\u00E4ssig. Erlaubte Werte sind: {{\n              control.errors.enumValidator.allowedValues.join(\", \") }}</mat-error>"
                     },] },
         ];
         /** @nocollapse */
