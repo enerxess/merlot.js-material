@@ -6,7 +6,7 @@ import { FormControl } from "@angular/forms";
     <mat-form-field>
       <input
         matInput
-        placeholder="{{ ui.label }}"
+        [placeholder]="label"
         [(ngModel)]="iModel"
         (ngModelChange)="updateModel($event)"
       />
@@ -49,9 +49,12 @@ export class InputComponent implements OnInit {
 
   ngOnInit() {
     this.ui = this.schema.ui || {};
+  }
+
+  get label() {
     if (this.schema.required && this.ui.label) {
-      this.ui.label += " *";
-    }
+      return this.ui.label + " *";
+    } else return this.ui.label;
   }
 
   updateModel($event: any) {
