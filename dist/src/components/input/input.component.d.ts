@@ -1,5 +1,5 @@
-import { OnInit, EventEmitter } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { OnInit, EventEmitter } from "@angular/core";
+import { FormControl } from "@angular/forms";
 export declare class InputComponent implements OnInit {
     control: FormControl | any;
     iModel: any;

@@ -1,6 +1,6 @@
 {
   "name": "merlot.js-material",
-  "version": "0.0.6-developer-preview",
+  "version": "0.0.7-developer-preview",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
