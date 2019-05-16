@@ -8,5 +8,6 @@ export declare class InputComponent implements OnInit {
     ui: any;
     constructor();
     ngOnInit(): void;
+    readonly label: any;
     updateModel($event: any): void;
 }
