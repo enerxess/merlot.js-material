@@ -1,4 +1,4 @@
-import { OnInit, EventEmitter } from '@angular/core';
+import { OnInit, EventEmitter } from "@angular/core";
 export declare class CheckboxComponent implements OnInit {
     iModel: any;
     schema: any;
@@ -6,5 +6,6 @@ export declare class CheckboxComponent implements OnInit {
     ui: any;
     constructor();
     ngOnInit(): void;
+    readonly label: any;
     updateModel($event: any): void;
 }

@@ -1,5 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { FormControl } from "@angular/forms";
 var MultiselectComponent = /** @class */ (function () {
     function MultiselectComponent() {
         this.ngModelChange = new EventEmitter();
@@ -12,6 +12,17 @@ var MultiselectComponent = /** @class */ (function () {
         });
         this.ui = this.schema.ui || {};
     };
+    Object.defineProperty(MultiselectComponent.prototype, "label", {
+        get: function () {
+            if (this.schema.required && this.ui.label) {
+                return this.ui.label + " *";
+            }
+            else
+                return this.ui.label;
+        },
+        enumerable: true,
+        configurable: true
+    });
     MultiselectComponent.prototype.updateModel = function ($event) {
         var _this = this;
         this.iModel.controls = [];
@@ -25,16 +36,16 @@ var MultiselectComponent = /** @class */ (function () {
     };
     MultiselectComponent.decorators = [
         { type: Component, args: [{
-                    selector: 'app-multiselect',
-                    template: "<mat-form-field>\n              <mat-select [placeholder]=\"ui.label\" [(ngModel)]=\"transformediModel\" (ngModelChange)=\"updateModel($event)\" multiple>\n                <mat-option *ngFor=\"let entry of schema.enum\" [value]=\"entry\">{{entry}}</mat-option>\n              </mat-select>\n            </mat-form-field>\n            <mat-error *ngIf=\"control?.errors?.required\">Dieser Wert ist eine Pflichtangabe.</mat-error>\n            <mat-error *ngIf=\"control?.errors?.minNumber\">Es m\u00FCssen mindestens {{\n              control.errors.minNumber.requiredElements}} Elemente ausgew\u00E4hlt werden.</mat-error>\n            <mat-error *ngIf=\"control?.errors?.enumValidator\">Dieser Wert ist nicht zul\u00E4ssig. Erlaubte Werte sind: {{\n              control.errors.enumValidator.allowedValues.join(\", \") }}</mat-error>"
+                    selector: "app-multiselect",
+                    template: "\n    <mat-form-field>\n      <mat-select\n        [placeholder]=\"label\"\n        [(ngModel)]=\"transformediModel\"\n        (ngModelChange)=\"updateModel($event)\"\n        multiple\n      >\n        <mat-option *ngFor=\"let entry of schema.enum\" [value]=\"entry\">{{\n          entry\n        }}</mat-option>\n      </mat-select>\n    </mat-form-field>\n    <mat-error *ngIf=\"control?.errors?.required && control?.touched\"\n      >Dieser Wert ist eine Pflichtangabe.</mat-error\n    >\n    <mat-error *ngIf=\"control?.errors?.minNumber && control?.touched\"\n      >Es m\u00FCssen mindestens\n      {{ control.errors.minNumber.requiredElements }} Elemente ausgew\u00E4hlt\n      werden.</mat-error\n    >\n    <mat-error *ngIf=\"control?.errors?.enumValidator && control?.touched\"\n      >Dieser Wert ist nicht zul\u00E4ssig. Erlaubte Werte sind:\n      {{ control.errors.enumValidator.allowedValues.join(\", \") }}</mat-error\n    >\n  "
                 },] },
     ];
     /** @nocollapse */
     MultiselectComponent.ctorParameters = function () { return []; };
     MultiselectComponent.propDecorators = {
-        "control": [{ type: Input, args: ['control',] },],
-        "iModel": [{ type: Input, args: ['iModel',] },],
-        "schema": [{ type: Input, args: ['schema',] },],
+        "control": [{ type: Input, args: ["control",] },],
+        "iModel": [{ type: Input, args: ["iModel",] },],
+        "schema": [{ type: Input, args: ["schema",] },],
         "ngModelChange": [{ type: Output },],
     };
     return MultiselectComponent;
