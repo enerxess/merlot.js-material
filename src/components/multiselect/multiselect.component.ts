@@ -16,7 +16,7 @@ import { FormControl, FormArray } from "@angular/forms";
         }}</mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-error *ngIf="control?.errors?.required && control?.touched"
+    <mat-error *ngIf="control?.errors?.required"
       >Dieser Wert ist eine Pflichtangabe.</mat-error
     >
     <mat-error *ngIf="control?.errors?.minNumber"
