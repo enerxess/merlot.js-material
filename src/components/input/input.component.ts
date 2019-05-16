@@ -14,25 +14,25 @@ import { FormControl } from "@angular/forms";
     <mat-error *ngIf="control?.errors?.required && control?.touched"
       >Dieser Wert ist eine Pflichtangabe.</mat-error
     >
-    <mat-error *ngIf="control?.errors?.min && control?.touched"
+    <mat-error *ngIf="control?.errors?.min"
       >Dieser Zahlenwert darf nicht kleiner als
       {{ control.errors.min.min }} sein.</mat-error
     >
-    <mat-error *ngIf="control?.errors?.max && control?.touched"
+    <mat-error *ngIf="control?.errors?.max"
       >Dieser Zahlenwert darf nicht größer als
       {{ control.errors.max.max }} sein.</mat-error
     >
-    <mat-error *ngIf="control?.errors?.minlength && control?.touched"
+    <mat-error *ngIf="control?.errors?.minlength"
       >Dieser Wert muss mindestens
       {{ control.errors.minlength.requiredLength }} Zeichen lang
       sein.</mat-error
     >
-    <mat-error *ngIf="control?.errors?.maxlength && control?.touched"
+    <mat-error *ngIf="control?.errors?.maxlength"
       >Dieser Wert darf höchstens
       {{ control.errors.maxlength.requiredLength }} Zeichen lang
       sein.</mat-error
     >
-    <mat-error *ngIf="control?.errors?.enumValidator && control?.touched"
+    <mat-error *ngIf="control?.errors?.enumValidator"
       >Dieser Wert ist nicht zulässig. Erlaubte Werte sind:
       {{ control.errors.enumValidator.allowedValues.join(", ") }}</mat-error
     >

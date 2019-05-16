@@ -19,12 +19,12 @@ import { FormControl, FormArray } from "@angular/forms";
     <mat-error *ngIf="control?.errors?.required && control?.touched"
       >Dieser Wert ist eine Pflichtangabe.</mat-error
     >
-    <mat-error *ngIf="control?.errors?.minNumber && control?.touched"
+    <mat-error *ngIf="control?.errors?.minNumber"
       >Es müssen mindestens
       {{ control.errors.minNumber.requiredElements }} Elemente ausgewählt
       werden.</mat-error
     >
-    <mat-error *ngIf="control?.errors?.enumValidator && control?.touched"
+    <mat-error *ngIf="control?.errors?.enumValidator"
       >Dieser Wert ist nicht zulässig. Erlaubte Werte sind:
       {{ control.errors.enumValidator.allowedValues.join(", ") }}</mat-error
     >
